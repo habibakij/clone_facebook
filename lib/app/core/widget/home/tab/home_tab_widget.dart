@@ -1,7 +1,7 @@
 import 'package:clone_facebook/app/core/widget/app_widget.dart';
-import 'package:clone_facebook/app/core/widget/home/home_mind_widget.dart';
-import 'package:clone_facebook/app/core/widget/home/home_post_widget.dart';
-import 'package:clone_facebook/app/core/widget/home/home_story_widget.dart';
+import 'package:clone_facebook/app/core/widget/home/home_tab/home_mind_widget.dart';
+import 'package:clone_facebook/app/core/widget/home/home_tab/home_post_widget.dart';
+import 'package:clone_facebook/app/core/widget/home/home_tab/home_story_widget.dart';
 import 'package:clone_facebook/app/modules/home/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -35,7 +35,7 @@ class HomeTabWidget extends StatelessWidget {
             );
           },
         ),
-        AppWidget().spaceH20(),
+        AppWidget().spaceWidget(),
       ],
     );
   }

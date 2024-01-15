@@ -129,4 +129,11 @@ class AppWidget {
       color: Colors.grey.withOpacity(0.5),
     );
   }
+
+  Widget spaceCustomWidget(double height) {
+    return Container(
+      height: height,
+      color: Colors.grey.withOpacity(0.5),
+    );
+  }
 }

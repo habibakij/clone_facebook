@@ -7,6 +7,7 @@ import 'package:clone_facebook/app/core/widget/home/tab/notification_tab_widget.
 import 'package:clone_facebook/app/core/widget/home/tab/profile_tab_widget.dart';
 import 'package:clone_facebook/app/core/widget/home/tab/video_tab_widget.dart';
 import 'package:clone_facebook/app/core/widget/home_toggle_tab.dart';
+import 'package:clone_facebook/app/modules/home/controllers/video_tab_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -60,7 +61,7 @@ class HomeView extends GetView<HomeController> {
                     }
                   },
                   imageList: controller.appbarIconList,
-                  height: 55,
+                  height: 53,
                   width: Get.width,
                   animatedBoxDecoration: BoxDecoration(
                     boxShadow: [
@@ -96,6 +97,18 @@ class HomeView extends GetView<HomeController> {
                 )),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Get.find<VideoTabController>().videoController.value.isPlaying
+              ? Get.find<VideoTabController>().videoController.pause()
+              : Get.find<VideoTabController>().videoController.play();
+        },
+        child: Icon(
+          Get.find<VideoTabController>().videoController.value.isPlaying
+              ? Icons.pause
+              : Icons.play_arrow,
+        ),
       ),
     );
   }

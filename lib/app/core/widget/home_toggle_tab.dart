@@ -53,7 +53,7 @@ class _HomeToggleTabState extends State<HomeToggleTab> {
               padding: const EdgeInsets.only(left: 2),
               child: Container(
                 width: widget.width - 4,
-                height: 1.0,
+                height: 2.0,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: AppColor.liteGray,
@@ -71,7 +71,7 @@ class _HomeToggleTabState extends State<HomeToggleTab> {
               duration: widget.duration,
               child: Container(
                 width: (widget.width / widget.imageList.length),
-                height: 1.0,
+                height: 2.0,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: AppColor.primaryColor,

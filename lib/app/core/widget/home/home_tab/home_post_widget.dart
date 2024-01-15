@@ -134,7 +134,7 @@ class HomePostWidget extends StatelessWidget {
                     ),
                     padding: const EdgeInsets.all(2.0),
                     child: Image.asset(
-                      "assets/home_like_icon.png",
+                      "assets/home_liked_icon.png",
                       height: 10,
                       width: 10,
                       fit: BoxFit.fill,
@@ -179,6 +179,85 @@ class HomePostWidget extends StatelessWidget {
             ],
           ),
         ),
+        AppWidget().spaceCustomWidget(1.0),
+        Padding(
+          padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 12.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Image.asset(
+                    "assets/like_blue.png",
+                    height: 20,
+                    width: 20,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 4.0),
+                    child: Text(
+                      "Like",
+                      style: TextStyle(
+                          fontSize: 12, color: AppColor.black.withOpacity(0.8)),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Image.asset(
+                    "assets/home_comment_icon.png",
+                    height: 18,
+                    width: 18,
+                    color: Colors.black.withOpacity(0.8),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 4.0),
+                    child: Text(
+                      "Comment",
+                      style: TextStyle(fontSize: 12, color: AppColor.black),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Image.asset(
+                    "assets/home_whatsapp_icon.png",
+                    height: 20,
+                    width: 20,
+                    color: Colors.black.withOpacity(0.8),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 4.0),
+                    child: Text(
+                      "Send",
+                      style: TextStyle(fontSize: 12, color: AppColor.black),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Image.asset(
+                    "assets/home_share_iocn.png",
+                    height: 20,
+                    width: 20,
+                    color: Colors.black.withOpacity(0.8),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 4.0),
+                    child: Text(
+                      "Share",
+                      style: TextStyle(fontSize: 12, color: AppColor.black),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        AppWidget().spaceH12(),
+        AppWidget().spaceWidget(),
       ],
     );
   }
