@@ -1,10 +1,18 @@
 import 'package:clone_facebook/app/core/style/app_color.dart';
 import 'package:clone_facebook/app/core/widget/app_widget.dart';
+import 'package:clone_facebook/app/data/home/video_tab/video_post_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:video_player/video_player.dart';
 
 class VideoListItem extends StatelessWidget {
-  const VideoListItem({Key? key}) : super(key: key);
+  VideoPostModel videoPostModel;
+  VideoPlayerController videoPlayerController;
+  VideoListItem(
+      {required this.videoPostModel,
+      required this.videoPlayerController,
+      Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +31,11 @@ class VideoListItem extends StatelessWidget {
                   Container(
                     height: 35,
                     width: 35,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(Radius.circular(20)),
                       image: DecorationImage(
-                          image: AssetImage("assets/home_story_image_1.jpg"),
+                          image:
+                              AssetImage(videoPostModel.groupImage.toString()),
                           fit: BoxFit.cover),
                     ),
                     alignment: Alignment.bottomRight,
@@ -40,9 +49,9 @@ class VideoListItem extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            const Text(
-                              "homePostModel.groupTitle",
-                              style: TextStyle(
+                            Text(
+                              videoPostModel.groupTitle,
+                              style: const TextStyle(
                                   fontSize: 12,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
@@ -60,7 +69,7 @@ class VideoListItem extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                              "10 Jan 2024",
+                              videoPostModel.dateTime,
                               style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.black.withOpacity(0.6),
@@ -98,18 +107,51 @@ class VideoListItem extends StatelessWidget {
             ],
           ),
         ),
-        const Padding(
-          padding: EdgeInsets.all(8.0),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
           child: Text(
-            "homePostModel.postText",
-            style: TextStyle(fontSize: 12, color: Colors.black),
+            videoPostModel.postText,
+            style: const TextStyle(fontSize: 12, color: Colors.black),
           ),
         ),
-        Image.asset(
-          "assets/home_story_image_1.jpg",
+        SizedBox(
           height: 250,
           width: Get.width,
-          fit: BoxFit.fill,
+          child: AspectRatio(
+            aspectRatio: videoPlayerController.value.aspectRatio,
+            child: Stack(
+              alignment: Alignment.bottomCenter,
+              children: <Widget>[
+                VideoPlayer(videoPlayerController),
+                Positioned(
+                  top: 120,
+                  child: InkWell(
+                    onTap: () {
+                      videoPlayerController.value.isPlaying
+                          ? videoPlayerController.pause()
+                          : videoPlayerController.play();
+                    },
+                    child: Container(
+                      height: 45,
+                      width: 45,
+                      decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(30)),
+                          color: AppColor.primaryColor.withOpacity(0.5),
+                          border: Border.all(color: AppColor.black)),
+                      child: Icon(
+                        videoPlayerController.value.isPlaying
+                            ? Icons.pause
+                            : Icons.play_arrow,
+                        size: 30,
+                        color: AppColor.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
@@ -146,7 +188,7 @@ class VideoListItem extends StatelessWidget {
                     fit: BoxFit.fill,
                   ),
                   Text(
-                    "1.5K",
+                    videoPostModel.postLike,
                     style: TextStyle(
                         fontSize: 12, color: Colors.black.withOpacity(0.8)),
                   ),
@@ -156,19 +198,19 @@ class VideoListItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "1.2K commets",
+                    videoPostModel.postComment,
                     style: TextStyle(
                         fontSize: 12, color: Colors.black.withOpacity(0.8)),
                   ),
                   AppWidget().spaceW10(),
                   Text(
-                    "1.5K share",
+                    videoPostModel.postShare,
                     style: TextStyle(
                         fontSize: 12, color: Colors.black.withOpacity(0.8)),
                   ),
                   AppWidget().spaceW10(),
                   Text(
-                    "1.5M view",
+                    videoPostModel.postView,
                     style: TextStyle(
                         fontSize: 12, color: Colors.black.withOpacity(0.8)),
                   ),

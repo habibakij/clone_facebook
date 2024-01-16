@@ -4,6 +4,7 @@ import 'package:clone_facebook/app/core/widget/home/video_tab/video_list_item.da
 import 'package:clone_facebook/app/modules/home/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:video_player/video_player.dart';
 
 class VideoTabWidget extends StatelessWidget {
   const VideoTabWidget({Key? key}) : super(key: key);
@@ -128,14 +129,23 @@ class VideoTabWidget extends StatelessWidget {
         AppWidget().spaceCustomWidget(4),
         AppWidget().spaceH12(),
         ListView.builder(
-          itemCount: Get.find<HomeController>().homePostDataList.length,
+          itemCount: Get.find<HomeController>().videoPostDataList.length,
           shrinkWrap: true,
           physics: const BouncingScrollPhysics(),
           padding: EdgeInsets.zero,
           itemBuilder: (context, index) {
-            return const Padding(
-              padding: EdgeInsets.only(top: 20.0),
-              child: VideoListItem(),
+            VideoPlayerController videoPlayerController =
+                VideoPlayerController.asset(Get.find<HomeController>()
+                    .videoPostDataList[index]
+                    .assetVideoUrl);
+            videoPlayerController.initialize();
+            return Padding(
+              padding: const EdgeInsets.only(top: 20.0),
+              child: VideoListItem(
+                videoPostModel:
+                    Get.find<HomeController>().videoPostDataList[index],
+                videoPlayerController: videoPlayerController,
+              ),
             );
           },
         ),

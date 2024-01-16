@@ -22,5 +22,6 @@ flutter:
 
   assets:
     - assets/
+    - assets/video/
 
 

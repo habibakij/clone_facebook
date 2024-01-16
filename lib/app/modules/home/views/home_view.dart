@@ -98,18 +98,6 @@ class HomeView extends GetView<HomeController> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Get.find<VideoTabController>().videoController.value.isPlaying
-              ? Get.find<VideoTabController>().videoController.pause()
-              : Get.find<VideoTabController>().videoController.play();
-        },
-        child: Icon(
-          Get.find<VideoTabController>().videoController.value.isPlaying
-              ? Icons.pause
-              : Icons.play_arrow,
-        ),
-      ),
     );
   }
 }

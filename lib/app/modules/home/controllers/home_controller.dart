@@ -1,5 +1,6 @@
-import 'package:clone_facebook/app/data/home/home_post_model.dart';
-import 'package:clone_facebook/app/data/home/home_story_model.dart';
+import 'package:clone_facebook/app/data/home/home_tab/home_post_model.dart';
+import 'package:clone_facebook/app/data/home/home_tab/home_story_model.dart';
+import 'package:clone_facebook/app/data/home/video_tab/video_post_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -17,12 +18,14 @@ class HomeController extends GetxController {
 
   List<HomeStoryModel> storyModelList = [];
   List<HomePostModel> homePostDataList = [];
+  List<VideoPostModel> videoPostDataList = [];
 
   @override
   void onInit() {
     super.onInit();
     initHomeStory();
     initHomePostData();
+    initVideoPostData();
   }
 
   initHomeStory() {
@@ -150,6 +153,87 @@ class HomeController extends GetxController {
         postComment: "1.5K comments",
         postShare: "1.2K share",
       ),
+    );
+  }
+
+  initVideoPostData() {
+    videoPostDataList.add(
+      VideoPostModel(
+          groupImage: "assets/home_story_image_1.jpg",
+          groupTitle: "Evergreen Bangladesh",
+          dateTime: "16-01-2024",
+          postText:
+              "Green Bangladesh is working to bring positive changes in the country. It is a non-profit organization with a vision to make a confident.",
+          assetVideoUrl: "assets/video/video_1.mp4",
+          postLike: "5.8K Like",
+          postComment: "3.5K comments",
+          postShare: "1.1K share",
+          postView: "1.6M view"),
+    );
+    videoPostDataList.add(
+      VideoPostModel(
+          groupImage: "assets/home_story_image_2.jpg",
+          groupTitle: "Green Dhaka, BD",
+          dateTime: "20-01-2024",
+          postText:
+              "Air-conditioned Green Dhaka bus services between Abdullahpur and Motijheel via Badda in the capital has become hazardous due to overloading of passengers.",
+          assetVideoUrl: "assets/video/video_2.mp4",
+          postLike: "5.8K Like",
+          postComment: "3.5K comments",
+          postShare: "1.1K share",
+          postView: "1.6M view"),
+    );
+    videoPostDataList.add(
+      VideoPostModel(
+          groupImage: "assets/home_story_image_3.jpg",
+          groupTitle: "Dom Inn Developers",
+          dateTime: "25-01-2024",
+          postText:
+              "DOM-INNO Builders Limited is one of the best real estate developer companies in Bangladesh since 2002. The selection of a convenient Projects Location, Application of State-of-the-art technology",
+          assetVideoUrl: "assets/video/video_3.mp4",
+          postLike: "5.8K Like",
+          postComment: "3.5K comments",
+          postShare: "1.1K share",
+          postView: "1.6M view"),
+    );
+    videoPostDataList.add(
+      VideoPostModel(
+          groupImage: "assets/home_story_image_4.jpeg",
+          groupTitle: "World Developers",
+          dateTime: "28-01-2024",
+          postText:
+              "Welcome to the WeAreDevelopers World Congress, recognized by many as the world's flagship event for developers and tech decision-makers.",
+          assetVideoUrl: "assets/video/video_4.mp4",
+          postLike: "5.8K Like",
+          postComment: "3.5K comments",
+          postShare: "1.1K share",
+          postView: "1.6M view"),
+    );
+    videoPostDataList.add(
+      VideoPostModel(
+          groupImage: "assets/home_story_image_5.jpeg",
+          groupTitle: "South Dakota",
+          dateTime: "30-01-2024",
+          postText:
+              "South Dakota is an expansive, sparsely populated midwestern U.S. state where rolling prairies give way to the dramatic Black Hills National Forest. Black Hills is home to 2 historical monuments carved right into towering granite peaks.",
+          assetVideoUrl: "assets/video/video_5.mp4",
+          postLike: "5.8K Like",
+          postComment: "3.5K comments",
+          postShare: "1.1K share",
+          postView: "1.6M view"),
+    );
+    videoPostDataList.add(
+      VideoPostModel(
+          groupImage: "assets/home_story_image_6.jpeg",
+          groupTitle: "Evergreen Bangladesh",
+          dateTime: "02-02-2024",
+          postText:
+              "South Dakota 222 is an expansive, sparsely populated midwestern U.S. state where rolling prairies give way to the dramatic Black Hills National Forest. Black Hills is home to 2 historical monuments carved right into towering granite peaks.",
+          assetVideoUrl: "assets/video/video_6.mp4",
+          postLike: "5.8K Like",
+          postComment: "3.5K comments",
+          postShare: "1.1K share",
+          postView: "1.6M view"),
     );
   }
 }

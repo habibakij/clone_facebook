@@ -1,6 +1,6 @@
 import 'package:clone_facebook/app/core/style/app_color.dart';
 import 'package:clone_facebook/app/core/widget/app_widget.dart';
-import 'package:clone_facebook/app/data/home/home_post_model.dart';
+import 'package:clone_facebook/app/data/home/home_tab/home_post_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
